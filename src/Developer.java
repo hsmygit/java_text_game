@@ -25,12 +25,6 @@ public class Developer extends Character {
                     unlockedSkillsCount++;
                     skillUnlocked[unlockedSkillsCount - 1] = true; // 해당 스킬 봉인 해제
                     System.out.println("개발자 " + getName() + " 봉인 해제 스킬: " + skillToUnlock);
-                    if (dungeonName.equals("독서실")) {
-                        // 독서실 던전을 클리어하면 스킬 e와 r의 봉인을 해제
-                        skillUnlocked[2] = true; // 스킬 e 봉인 해제
-                        skillUnlocked[3] = true; // 스킬 r 봉인 해제
-                        System.out.println("개발자 " + getName() + " 스킬 e와 r의 봉인이 해제되었습니다!");
-                    }
                 } else {
                     System.out.println("모든 스킬이 봉인 해제 되었습니다.");
                 }
@@ -47,24 +41,24 @@ public class Developer extends Character {
                 System.out.println("개발자 " + getName() + " " + skill + " 스킬 사용!");
                 // 스킬에 따른 공격 처리 코드 추가
                 switch (skillIndex) {
-                    case 0 -> { // 스킬 q
+                    case 0 -> { // 스킬 1
                         int damageQ = 30; // 스킬 q에 해당하는 데미지
-                        System.out.println("스킬 q로 몬스터에게 " + damageQ + "의 데미지를 입힙니다.");
+                        System.out.println(skills[skillIndex] + " 스킬로 몬스터에게 " + damageQ + "의 데미지를 입힙니다.");
                         currentMonster.takeDamage(damageQ);
                     }
-                    case 1 -> { // 스킬 w
+                    case 1 -> { // 스킬 2
                         int damageW = 40; // 스킬 w에 해당하는 데미지
-                        System.out.println("스킬 w로 몬스터에게 " + damageW + "의 데미지를 입힙니다.");
+                        System.out.println(skills[skillIndex] + " 스킬로 몬스터에게 " + damageW + "의 데미지를 입힙니다.");
                         currentMonster.takeDamage(damageW);
                     }
-                    case 2 -> { // 스킬 e
+                    case 2 -> { // 스킬 3
                         int damageE = 50; // 스킬 e에 해당하는 데미지
-                        System.out.println("스킬 e로 몬스터에게 " + damageE + "의 데미지를 입힙니다.");
+                        System.out.println(skills[skillIndex] + " 스킬로 몬스터에게 " + damageE + "의 데미지를 입힙니다.");
                         currentMonster.takeDamage(damageE);
                     }
-                    case 3 -> { // 스킬 r
+                    case 3 -> { // 스킬 4
                         int damageR = 60; // 스킬 r에 해당하는 데미지
-                        System.out.println("스킬 r로 몬스터에게 " + damageR + "의 데미지를 입힙니다.");
+                        System.out.println(skills[skillIndex] + " 스킬로 몬스터에게 " + damageR + "의 데미지를 입힙니다.");
                         currentMonster.takeDamage(damageR);
                     }
                     default -> System.out.println("잘못된 입력입니다. 다시 선택해주세요.");

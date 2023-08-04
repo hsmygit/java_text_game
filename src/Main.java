@@ -9,9 +9,9 @@ public class Main {
         String developerName = scanner.nextLine(); //개행 문자 제거.
         System.out.println("입력한 개발자의 이름은 " + developerName + " 입니다.");
 
-        // 던전 생성
+        // 던전 생성 (몬스터를 여러 마리 생성할 수 있게 배열로 만듬)
         Dungeon[] dungeons = {
-                new Dungeon("학교", new String[]{"교수"}, new int[]{100}, new int[]{20}, new int[]{0}, new String[]{MonsterArt.MONSTER_PROFESSOR},"꼰대"),
+                new Dungeon("학교", new String[]{"교수"}, new int[]{100}, new int[]{20}, new int[]{-10}, new String[]{MonsterArt.MONSTER_PROFESSOR},"꼰대"),
                 new Dungeon("백준", new String[]{"알고리즘"}, new int[]{80}, new int[]{30}, new int[]{10}, new String[]{MonsterArt.MONSTER_ALGORITHM},"머리 아픔"),
                 new Dungeon("독서실1", new String[]{"백엔드"}, new int[]{120}, new int[]{25}, new int[]{8}, new String[]{MonsterArt.MONSTER_Backend},"안보여..."),
                 new Dungeon("독서실2", new String[]{"포론트"}, new int[]{150}, new int[]{35}, new int[]{12}, new String[]{MonsterArt.MONSTER_FrontEnd},"디자인..."),
@@ -20,7 +20,7 @@ public class Main {
 
 
         // 개발자 생성
-        String[] skills = {"q", "w", "e", "r"};
+        String[] skills = {"교수 어택", "알고리즘", "백엔드", "프론트"};
         Developer developer = new Developer(developerName, 100, 20, skills, dungeons);
 
         // 게임 진행
@@ -43,7 +43,7 @@ public class Main {
             while (monsterIndex < monsters.length && developer.getHealth() > 0) {
                 Monster currentMonster = monsters[monsterIndex];
                 System.out.println(currentMonster.getArt()); //몬스터 이미지 출력
-                System.out.println(currentMonster.getName() + " 출현!!!"); // 몬스터 이름 출력
+                System.out.println(currentMonster.getName() + " 몬스터 출현!!!"); // 몬스터 이름 출력
                 System.out.println("체력: " + currentMonster.getHealth()); // 몬스터의 체력 출력
                 System.out.println(dungeon.getName() + "의 " + dungeon.getAssociatedSkill() + " 효과로 추가 데미지: " + currentMonster.getAddition());
 
@@ -54,10 +54,10 @@ public class Main {
                     // 개발자 공격 선택 받기
                     System.out.println("----- 할 짓을 선택 하세요. -----");
                     System.out.println("1. 일반 공격");
-                    System.out.println("2. 교수 어택 스킬 사용");
-                    System.out.println("3. 알고리즘 스킬 사용");
-                    System.out.println("4. 백엔드 스킬 사용");
-                    System.out.println("5. 프론트 스킬 사용");
+                    System.out.println("2. " + skills[0] + " 스킬 사용");
+                    System.out.println("3. " + skills[1] + " 스킬 사용");
+                    System.out.println("4. " + skills[2] + " 스킬 사용");
+                    System.out.println("5. " + skills[3] + " 스킬 사용");
                     System.out.print("어떤 공격을 선택하시겠습니까? (1-5): ");
                     int attackChoice = scanner.nextInt();
                     scanner.nextLine(); // 개행 문자 제거
