@@ -1,13 +1,19 @@
-import java.util.Random; // -> 랜덤 나중에 사용.
-
 public class Dungeon {
-    private String name;
-    private String[] monsters;
-    private String associatedSkill;
+    private final String name;
+    private final String[] monsters;
+    private final int[] monsterHealths;
+    private final int[] monsterDamages;
+    private final int[] monsterAdditions;
+    private final String[] monsterArts;
+    private final String associatedSkill;
 
-    public Dungeon(String name, String[] monsters, String associatedSkill) {
+    public Dungeon(String name, String[] monsters, int[] monsterHealths, int[] monsterDamages, int[] monsterAdditions, String[] monsterArts, String associatedSkill) {
         this.name = name;
         this.monsters = monsters;
+        this.monsterHealths = monsterHealths;
+        this.monsterDamages = monsterDamages;
+        this.monsterAdditions = monsterAdditions;
+        this.monsterArts = monsterArts;
         this.associatedSkill = associatedSkill;
     }
 
@@ -18,9 +24,24 @@ public class Dungeon {
     public String[] getMonsters() {
         return monsters;
     }
-    //던전과 연관되어 있는 스킬
+
+    public int[] getMonsterHealths() {
+        return monsterHealths;
+    }
+
+    public int[] getMonsterDamages() {
+        return monsterDamages;
+    }
+
+    public int[] getMonsterAdditions() {
+        return monsterAdditions;
+    }
+
+    public String[] getMonsterArts() {
+        return monsterArts;
+    }
+
     public String getAssociatedSkill() {
         return associatedSkill;
     }
 }
-
